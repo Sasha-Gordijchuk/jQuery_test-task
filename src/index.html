@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="page">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main class="main">
+    <h1 class="main__header">Estimate your investment</h1>
+    <div class="main__currencies currencies">
+      <span class="currencies__currency">USD</span>
+      <span class="currencies__currency">EUR</span>
+      <span class="currencies__currency">GBP</span>
+    </div>
+
+    <div class="main__price-selector price-selector">
+      <span class="price-selector__title">How many users?</span>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+
+    <div class="main__progress-bar progress-bar">
+      <span class="progress-bar__users-count">1 user</span>
+      <input type="range" class="progress-bar__input">
+      <span class="progress-bar__price">$420/year</span>
+    </div>
+
+    <div class="main__features features">
+      <h2 class="features__header">All plans include:</h2>
+
+      <ul class="features__list">
+        <li class="features__item">Direct integration with QuickBooks or Xero</li>
+        <li class="features__item">Unlimited custom fields & workflows</li>
+        <li class="features__item">Standard onboarding and support</li>
+        <li class="features__item">Multi-departments / projects</li>
+        <li class="features__item">Unlimited document storage</li>
+        <li class="features__item">Amazon Business Punch-in</li>
+        <li class="features__item">Multi-currencies</li>
+        <li class="features__item">Lifetime updates</li>
+        <li class="features__item">3-way matching</li>
+        <li class="features__item">Multi-locations</li>
+        <li class="features__item">Budgets</li>
+      </ul>
+
+      <span class="features__all">See all features ></span>
+    </div>
+
+    <div class="main__plans">
+      <div class="main__plan plan">
+        <h2 class="plan__title">For smaller teams</h2>
+        <h3 class="plan__subtitle">with ≤20 users</h3>
+        <span class="plan__price">$35</span>
+        <span class="plan__text">per user per month billed annually</span>
+        <button type="button" class="plan__button">Get started ></button>
+        <img src="./css/img/group.svg" alt="group" class="plan__image">
+      </div>
+      <div class="main__plan plan">
+        <h2 class="plan__title">For larger teams</h2>
+        <h3 class="plan__subtitle">with >20 users</h3>
+        <span class="plan__inv-pricing">Individually tailored pricing</span>
+        <span class="plan__text">billed annually</span>
+        <button type="button" class="plan__button">Get a Custom Quote ></button>
+        <img src="./css/img/building.svg" alt="building" class="plan__image">
+      </div>
+    </div>
+  </main>
+</body>
+</html>
