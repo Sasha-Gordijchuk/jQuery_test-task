@@ -2,6 +2,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 
 export default {
   entry: './src/js/main.js',
@@ -17,6 +18,14 @@ export default {
   }),
   new MiniCssExtractPlugin({
     filename: 'style.css'
+  }),
+  new CopyPlugin({
+    patterns: [
+      {
+        from: 'src/assets/img',
+        to: 'img',
+      }
+    ]
   }),
 ],
 optimization: {
@@ -36,7 +45,7 @@ optimization: {
         use: ['file-loader'],
       },
       {
-        test: /\.ttf$/,
+        test: /\.(ttf|woff)$/,
         use: ['file-loader'],
       },
     ]

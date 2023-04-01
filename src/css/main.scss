@@ -2,4 +2,14 @@
 @import './utils/normalize';
 @import './utils/variables';
 @import './utils/mixins';
+@import './utils/fonts';
+
+@import './blocks/main';
+
+.page {
+  background-color: $light-background;
+  padding: 60px 20px;
+
+  font-family: 'Literata', serif;
+}
 
