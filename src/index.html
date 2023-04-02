@@ -10,19 +10,67 @@
   <main class="main">
     <h1 class="main__title">Estimate your investment</h1>
     <div class="main__currencies currencies">
-      <span class="currencies__currency">USD</span>
+      <span class="currencies__currency currencies__currency--selected">USD</span>
+      <span class="currencies__pump">|</span>
       <span class="currencies__currency">EUR</span>
+      <span class="currencies__pump">|</span>
       <span class="currencies__currency">GBP</span>
     </div>
 
     <div class="main__price-selector price-selector">
       <span class="price-selector__title">How many users?</span>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
+      
+      <div class="dropdown price-selector__dropdown">
+        <div
+          class="btn btn-outline-secondary price-selector__button"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <div class="price-selector__wrapper">
+            <span class="price-selector__users">20 users</span>
+            <span class="price-selector__pump">|</span>
+            <span class="price-selector__price">$8400/year</span>
+          </div>
+          <span class="price-selector__toggle-arrow">></span>
+      </div>
+        <ul class="dropdown-menu price-selector__dropdown-menu">
+          <li class="dropdown-item price-selector__dropdown-item">
+            <span class="price-selector__users">1 user</span>
+            <span class="price-selector__price">$420/year</span>
+          </li>
+          <li class="dropdown-item price-selector__dropdown-item">
+            <span class="price-selector__users">2 users</span>
+            <span class="price-selector__price">$840/year</span>
+          </li>
+          <li class="dropdown-item price-selector__dropdown-item">
+            <span class="price-selector__users">3 users</span>
+            <span class="price-selector__price">$1260/year</span>
+          </li>
+          <li class="dropdown-item price-selector__dropdown-item">
+            <span class="price-selector__users">4 users</span>
+            <span class="price-selector__price">$1680/year</span>
+          </li>
+          <li class="dropdown-item price-selector__dropdown-item">
+            <span class="price-selector__users">5 users</span>
+            <span class="price-selector__price">$2100/year</span>
+          </li>
+          <li class="dropdown-item price-selector__dropdown-item">
+            <span class="price-selector__users">6 users</span>
+            <span class="price-selector__price">$2520/year</span>
+          </li>
+          <li class="dropdown-item price-selector__dropdown-item">
+            <span class="price-selector__users">7 users</span>
+            <span class="price-selector__price">$2940/year</span>
+          </li>
+          <li class="dropdown-item price-selector__dropdown-item">
+            <span class="price-selector__users">8 users</span>
+            <span class="price-selector__price">$3360/year</span>
+          </li>
+
+        </ul>
+      </div>
+
     </div>
 
     <div class="main__progress-bar progress-bar">

@@ -1,0 +1,22 @@
+.currencies {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  &__currency {
+    @extend %tag;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    margin-bottom: 40px;
+
+    &--selected {
+      color: $button-color;
+    }
+  }
+
+  &__pump {
+    @extend %tag;
+    color: #DDDEE5;
+  }
+}
