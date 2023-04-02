@@ -1,0 +1,42 @@
+.features {
+  &__header {
+    @extend %small-title;
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin-bottom: 24px;
+  }
+
+  &__shape {
+    height: 11px;
+    width: 14px;
+
+    margin: 8px 18px 0 8px;
+  }
+  
+  &__item {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  &__text {
+    @extend %body-2;
+    display: block;
+  }
+
+  &__all {
+    @extend %button-text;
+    color: $button-color;
+
+    cursor: pointer;
+
+    &:hover {
+      color: $main-text-color;
+    }
+  }
+}

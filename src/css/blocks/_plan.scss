@@ -9,6 +9,10 @@
   flex-direction: column;
   align-items: center;
 
+  &:last-child {
+    margin-bottom: 32px;
+  }
+
   &__title {
     @extend %small-title;
     margin-bottom: 4px;
