@@ -7,7 +7,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 export default {
   entry: './src/js/main.js',
   output: {
-    filename: 'bundle.js',
+    filename: 'bundle[contenthash].js',
     path: path.resolve('dist'),
     clean: true,
   },
@@ -17,7 +17,7 @@ export default {
     template: './src/index.html',
   }),
   new MiniCssExtractPlugin({
-    filename: 'style.css'
+    filename: 'style[contenthash].css'
   }),
   new CopyPlugin({
     patterns: [
