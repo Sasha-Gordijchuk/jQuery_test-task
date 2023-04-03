@@ -2,13 +2,16 @@
   display: flex;
   flex-direction: row;
   gap: 8px;
+  margin-bottom: 40px;
+
+  @include onDesktop {
+    margin: 0;
+  }
 
   &__currency {
     @extend %tag;
     text-transform: uppercase;
     cursor: pointer;
-
-    margin-bottom: 40px;
 
     &--selected {
       color: $button-color;

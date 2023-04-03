@@ -1,4 +1,8 @@
 .features {
+  @include onDesktop {
+    min-width: fit-content;
+  }
+
   &__header {
     @extend %small-title;
     margin-bottom: 24px;
@@ -17,6 +21,10 @@
     width: 14px;
 
     margin: 8px 18px 0 8px;
+
+    @include onDesktop {
+      margin-left: 0;
+    }
   }
   
   &__item {

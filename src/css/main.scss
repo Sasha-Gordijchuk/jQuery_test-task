@@ -13,14 +13,10 @@
 @import './blocks/features';
 
 .page {
-  background-color: $light-background;
   padding: 60px 20px;
+  margin: 0 auto;
+  max-width: 1160px;
+  background-color: $light-background;
 
   font-family: 'Literata', serif;
-}
-
-.last-opt {
-  background-color: magenta;
-  display: flex;
-  flex-direction: column;
 }
