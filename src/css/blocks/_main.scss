@@ -45,11 +45,11 @@
     flex-direction: column;
     align-items: center;
 
-    gap: 46px;
     width: 100%;
-
+    
     @include onDesktop {
       align-items: flex-end;
+      gap: 46px;
     }
   }
 
@@ -61,13 +61,18 @@
       flex-direction: row;
       flex-flow: row-reverse;
 
-      gap: 92px;
+      gap: 72px;
     }
   }
 
   &__plans {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
     @include onDesktop {
-      display: flex;
+      flex-direction: row;
+      gap: 0;
     }
   }
 }
