@@ -8,6 +8,8 @@
   flex-direction: column;
   align-items: center;
 
+  transition: 0.5s;
+
   @include onDesktop {
     flex: 1;
     opacity: 0.5;

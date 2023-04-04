@@ -113,14 +113,28 @@ function changeRangeLabels(range, beforeRange, afterRange) {
   const min = range.attr('min');
   const max = range.attr('max');
   const newVal = Number(((val - min) * 100) / (max - min));
+  const firstPlanCard = $('.plan:first-child');
+  const secondPlanCard = $('.plan:last-child');
 
-  beforeRange.html(val + ' users');
-  afterRange.html(getCurrencySymbol(currency)
-  + (val * getPricePerMonth(currency) * MONTH_COUNT)
-  + '/year');
-
-  beforeRange.css('left', `calc(${newVal}% + (${8 - newVal * 0.15}px))`);
-  afterRange.css('left', `calc(${newVal}% + (${8 - newVal * 0.15}px))`);
+  if (val > 20) {
+    beforeRange.text('More than 20?');
+    afterRange.text('Get a Custom Quote >');
+    afterRange.addClass('features__all');
+    firstPlanCard.removeClass('plan--active');
+    secondPlanCard.addClass('plan--active');
+  } else {
+    beforeRange.text(val + ' users');
+    afterRange.text(getCurrencySymbol(currency)
+    + (val * getPricePerMonth(currency) * MONTH_COUNT)
+    + '/year');
+  
+    beforeRange.css('left', `calc(${newVal}% + (${8 - newVal * 0.15}px))`);
+    afterRange
+      .removeClass('features__all')
+      .css('left', `calc(${newVal}% + (${8 - newVal * 0.15}px))`);
+      secondPlanCard.removeClass('plan--active');
+      firstPlanCard.addClass('plan--active');
+  }
 }
 
 function rangeInputListener() {
