@@ -4,11 +4,15 @@ import '../css/main.scss';
 
 const MAX_USERS = 20;
 const MONTH_COUNT = 12;
+let currency = 'USD'
+$('.progress-bar__input').val(0);
 
 $(function(){
-  selectorFill('USD');
-  handleCurrencySelect();
-  handlePriceSelect();
+  selectorFill(currency);
+  currencySelectListener();
+  priceSelectListener();
+  openSelectorListener();
+  rangeInputListener();
 });
 
 function getPricePerMonth(currency) {
@@ -52,9 +56,27 @@ function selectorFill(currency) {
   $('.price-selector__dropdown-menu').html(resultHTML);
 };
 
-function handleCurrencySelect() {
+function openSelectorListener() {
+  $('.price-selector__button').on('click', function() {
+    handleSelectorChange();
+  })
+}
+
+function handleSelectorChange() {
+  for (let i = 1; i <= MAX_USERS; i++) {
+    const item = $(`.price-selector__dropdown-item:nth-child(${i})`);
+
+    const priceLabel = item.children()[1];
+
+    $(priceLabel).text(getCurrencySymbol(currency)
+    + (getPricePerMonth(currency) * MONTH_COUNT * i)
+    + '/year');
+  }
+}
+
+function currencySelectListener() {
   $('.currencies__currency').on('click', function() {
-    const currency = $(this).text();
+    currency = $(this).text();
     const usersCount = $('.price-selector__wrapper > .price-selector__users').text().split(' ')[0];
     const currencySymbol = getCurrencySymbol(currency);
     const pricePerMonth = getPricePerMonth(currency);
@@ -62,13 +84,19 @@ function handleCurrencySelect() {
 
     $('.currencies__currency').removeClass('currencies__currency--selected');
     $(this).addClass('currencies__currency--selected');
-    selectorFill(currency);
+    // selectorFill(currency);
     $('.price-selector__price').text(`${priceText}/year`);
     $('.plan__price').text(currencySymbol + pricePerMonth)
+
+    changeRangeLabels(
+      $('.progress-bar__input'),
+      $('.progress-bar__users'),
+      $('.progress-bar__price')
+    )
   })
 };
 
-function handlePriceSelect() {
+function priceSelectListener() {
   $('.price-selector__dropdown-item').on('click', function() {
     const pumpHTML = '<span class="price-selector__pump">|</span>';
     let thisElementHTML = $(this).html();
@@ -78,4 +106,29 @@ function handlePriceSelect() {
 
     $('.price-selector__wrapper').html(newElementHTML);
   })
+};
+
+function changeRangeLabels(range, beforeRange, afterRange) {
+  const val = range.val();
+  const min = range.attr('min');
+  const max = range.attr('max');
+  const newVal = Number(((val - min) * 100) / (max - min));
+
+  beforeRange.html(val + ' users');
+  afterRange.html(getCurrencySymbol(currency)
+  + (val * getPricePerMonth(currency) * MONTH_COUNT)
+  + '/year');
+
+  beforeRange.css('left', `calc(${newVal}% + (${8 - newVal * 0.15}px))`);
+  afterRange.css('left', `calc(${newVal}% + (${8 - newVal * 0.15}px))`);
+}
+
+function rangeInputListener() {
+  const range = $('.progress-bar__input');
+  const beforeRange = $('.progress-bar__users');
+  const afterRange = $('.progress-bar__price');
+  
+  range.on('input', function() {
+    changeRangeLabels(range, beforeRange,afterRange);
+  });
 };

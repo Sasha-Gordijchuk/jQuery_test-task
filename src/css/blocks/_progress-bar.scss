@@ -5,6 +5,22 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    position: relative;
+    overflow: visible;
+  }
+
+  &__users {
+    @extend %small-title;
+    position: absolute;
+    transform: translate(-50%, -40px);
+  }
+
+  &__price {
+    @extend %small-title;
+    background-color: #fff;
+
+    position: absolute;
+    transform: translate(-50%, 16px);
   }
   
   &__input {
